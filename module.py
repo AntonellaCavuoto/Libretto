@@ -1,7 +1,10 @@
-import math as m
-from math import cos
-x = 3.14
+import math as m  # rinomino
+from math import sin
 
-print(m.sin(x))
-print(cos(x))
+x = 3.14
+print(sin(x))
+print(m.cos(x))
 print("ciao")
+
+# quando debuggo posso entrare nella console e scrivere dir() per sapere le definizioni che ho
+# es. dir(); dir(m)

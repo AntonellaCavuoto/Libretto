@@ -1,0 +1,3 @@
+file di testo dove segno tutte le librerie usate e la loro versione
+...
+

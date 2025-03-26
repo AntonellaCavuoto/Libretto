@@ -1,11 +1,12 @@
-from voto import Voto, Libretto
+import voto
 
-v1 = Voto("Trasfigurazione", 24, "2022-02-13", False)
-v2 = Voto("Pozioni", 30, "2022-02-17", True)
-v3 = Voto("Difesa contro le arti oscure", 27, "2022-04-13", False)
+v1 = voto.Voto(materia = "Trasfigurazione", punteggio= 24, data="2022 - 03 - 14", lode= False)
+v2 = voto.Voto(materia = "Pozioni", punteggio= 30, data="2022 - 02 - 13", lode= True)
+v3 = voto.Voto(materia = "Difesa contro le arti oscure", punteggio= 27, data="2022 - 05 - 24", lode= True)
 print(v1)
 
-mylib = Libretto(None, [v1, v2])
-print(mylib)
-mylib.append(v3)
-print(mylib)
+myLib = voto.Libretto(proprietario= None, voti = [v1, v2])
+print(myLib)
+myLib.append(v3)
+
+print(myLib)
