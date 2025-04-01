@@ -9,7 +9,7 @@ class Voto:
     data: str
     lode: bool
     def __str__(self):
-        if self.lode:
+        if self.lode == True:
             return f"In {self.materia} hai preso {self.punteggio} e lode il {self.data}"
         else:
             return f"In {self.materia} hai preso {self.punteggio} il {self.data}"

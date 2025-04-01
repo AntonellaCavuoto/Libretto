@@ -6,16 +6,19 @@ from voto.voto import Voto
 
 class LibrettoDAO:
     # def __init__(self):
-    #     # self.dbConnect = DBConnect()
+    #     self.dbConnect = DBConnect()
 
     # Qui mettiamo i metodi del DAO
-    def getAllVoti(self):
+
+    @staticmethod  # è un metodo che vede solo i parametri passati
+    def getAllVoti():  # tolgo il self
         # cnx = mysql.connector.connect(  # creo la connessione
         #     user="root",
         #     password="AticniviR1121!",
         #     host="127.0.0.1",
         #     database="Libretto")
         #cnx = self.dbConnect
+
         cnx = DBConnect.getConnection()
         cursor = cnx.cursor(dictionary=True)  # creo cursore
         query = """select * from voti"""
@@ -37,7 +40,8 @@ class LibrettoDAO:
         cnx.close()  # chiudere connessione
         return res
 
-    def addVoto(self, voto:Voto):
+    @staticmethod
+    def addVoto( voto:Voto):
         cnx = DBConnect.getConnection()
 
         cursor = cnx.cursor()
@@ -49,7 +53,8 @@ class LibrettoDAO:
         cnx.close()
         return
 
-    def hasVoto(self, voto: Voto):
+    @staticmethod
+    def hasVoto(voto: Voto):
         cnx = DBConnect.getConnection()
         cursor = cnx.cursor()
         query = """select * 
@@ -57,6 +62,7 @@ class LibrettoDAO:
                     where v.materia = %s"""  #%s è una stringa passata da fuori
         cursor.execute(query, (voto.materia,))
         res = cursor.fetchall()
+        cnx.close()
 
         return len(res) > 0  # se la lunghezza è maggiore di 0 vuol dire che quel voto già esiste
 
